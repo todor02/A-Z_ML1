@@ -1,4 +1,4 @@
-# Multiple Linear Regression
+# Multiple Linear 2.Regression
 
 # Importing the libraries
 import numpy as np
@@ -18,14 +18,14 @@ from sklearn.compose import  ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
 ct = ColumnTransformer(transformers=[("encoder", OneHotEncoder(), [3])], remainder="passthrough")
 x = np.array(ct.fit_transform(x))
-print("Encoded independent variable 'x' dataset")
+print("\nEncoded independent variable 'x' dataset")
 print(x)
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
 
-# Train the Multiple Linear Regression model on the Training set
+# Train the Multiple Linear 2.Regression model on the Training set
 from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
 regressor.fit(x_train, y_train)
@@ -33,7 +33,7 @@ regressor.fit(x_train, y_train)
 # Predict the Test set result
 y_pred = regressor.predict(x_test)
 np.set_printoptions(precision=2)
-print("Predicting the Test set result ||| The closer the better !")
+print("\nPredicting the Test set result ||| The closer the better !")
 print("Predicted --- Actual")
 print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)), 1))
 
