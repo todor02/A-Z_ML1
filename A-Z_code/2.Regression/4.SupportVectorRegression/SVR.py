@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 # Importing the dataset
-dataset = pd.read_csv('.csv')
+dataset = pd.read_csv('DataSets/Position_Salaries.csv')
 x = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, -1].values
 
