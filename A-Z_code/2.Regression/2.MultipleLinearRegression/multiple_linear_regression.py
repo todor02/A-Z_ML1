@@ -1,4 +1,5 @@
-# Multiple Linear 2.Regression
+# Multiple Linear Regression
+# Formula: y = b₀ + b₁x₁ + b₂x₂ + ... + bₙ xₙ
 
 # Importing the libraries
 import numpy as np
