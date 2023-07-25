@@ -1,6 +1,6 @@
 # Simple Linear Regression
 # Ordinary Least Squares: SUM (y - ŷ)² -> min
-# Formula: y = b₀ + b₁x₁
+# Formula: ŷ = b₀ + b₁x₁
 
 # Importing the libraries
 import numpy as np

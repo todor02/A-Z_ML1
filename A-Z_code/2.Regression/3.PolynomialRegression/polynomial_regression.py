@@ -1,5 +1,5 @@
 # Polynomial Regression
-# Formula: y = b₀ + b₁x₁ + b₂x₁² + ... + bₙ x₁ⁿ
+# Formula: ŷ = b₀ + b₁x₁ + b₂x₁² + ... + bₙ x₁ⁿ
 
 # Importing the libraries
 import numpy as np

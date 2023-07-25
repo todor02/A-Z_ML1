@@ -1,5 +1,5 @@
 # Multiple Linear Regression
-# Formula: y = b₀ + b₁x₁ + b₂x₂ + ... + bₙ xₙ
+# Formula: ŷ = b₀ + b₁x₁ + b₂x₂ + ... + bₙ xₙ
 
 # Importing the libraries
 import numpy as np
