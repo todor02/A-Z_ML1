@@ -36,6 +36,6 @@ y_pred = regressor.predict(x_test)
 np.set_printoptions(precision=2)
 print("\nPredicting the Test set result ||| The closer the better !")
 print("Predicted --- Actual")
-print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)), 1))
+print(np.concatenate((y_pred.reshape(len(y_pred), 1), y_test.reshape(len(y_test), 1)), 1))
 
 # NOTE TO SELF ::: Backward Elimination on Section:7 71.
