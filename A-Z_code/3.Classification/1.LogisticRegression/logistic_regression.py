@@ -28,7 +28,7 @@ classifier = LogisticRegression(random_state=0)
 classifier.fit(x_train, y_train)
 
 # Predicting a new result
-print(classifier.predict(sc.transform([[30, 8700]])))  # returns: [0] (correct)
+print(classifier.predict(sc.transform([[30, 87000]])))  # returns: [0] (correct)
 
 # Predicting the Test set results
 y_pred = classifier.predict(x_test)
