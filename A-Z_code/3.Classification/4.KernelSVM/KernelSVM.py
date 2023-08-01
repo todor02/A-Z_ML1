@@ -1,5 +1,4 @@
-# K-Nearest Neighbor
-# Euclidean Distance between P₁(x₁,y₁) and P₂(x₂,y₂) = √((x₂ - x₁)² + (y₂ - y₁)²)
+# Kernel SVM
 
 # Importing the libraries
 import numpy as np
@@ -21,10 +20,7 @@ sc = StandardScaler()
 x_train = sc.fit_transform(x_train)
 x_test = sc.transform(x_test)
 
-# Training the K-NN model on the Training set
-from sklearn.neighbors import KNeighborsClassifier
-classifier = KNeighborsClassifier(n_neighbors=5, metric='minkowski', p=2)
-classifier.fit(x_train, y_train)
+# Training the SVM model on the Training set
 
 # Predicting a new result
 print(classifier.predict(sc.transform([[30, 87000]])))  # returns: [0] (correct)
@@ -40,7 +36,7 @@ cm = confusion_matrix(y_test, y_pred)
 print(cm)
 print(accuracy_score(y_test, y_pred))
 
-# Visualising the Training set results ||| TAKES AGES TO RUN!!! ||| WILL RUN THEM LATER!
+# Visualising the Training set results
 from matplotlib.colors import ListedColormap
 x_set, y_set = sc.inverse_transform(x_train), y_train
 X1, X2 = np.meshgrid(np.arange(start =x_set[:, 0].min() - 10, stop =x_set[:, 0].max() + 10, step = 0.25),
@@ -51,13 +47,13 @@ plt.xlim(X1.min(), X1.max())
 plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(x_set[y_set == j, 0], x_set[y_set == j, 1], c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('K-NN (Training set)')
+plt.title('Kernel SVM (Training set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
 plt.show()
 
-# Visualising the Test set results ||| TAKES AGES TO RUN!!! ||| WILL RUN THEM LATER!
+# Visualising the Test set results
 from matplotlib.colors import ListedColormap
 x_set, y_set = sc.inverse_transform(x_test), y_test
 X1, X2 = np.meshgrid(np.arange(start =x_set[:, 0].min() - 10, stop =x_set[:, 0].max() + 10, step = 0.25),
@@ -68,7 +64,7 @@ plt.xlim(X1.min(), X1.max())
 plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(x_set[y_set == j, 0], x_set[y_set == j, 1], c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('K-NN (Test set)')
+plt.title('Kernel SVM (Test set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()

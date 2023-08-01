@@ -21,6 +21,9 @@ x_train = sc.fit_transform(x_train)
 x_test = sc.transform(x_test)
 
 # Training the SVM model on the Training set
+from sklearn.svm import SVC
+classifier = SVC(kernel='linear', random_state=0)
+classifier.fit(x_train, y_train)
 
 # Predicting a new result
 print(classifier.predict(sc.transform([[30, 87000]])))  # returns: [0] (correct)
@@ -47,7 +50,7 @@ plt.xlim(X1.min(), X1.max())
 plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(x_set[y_set == j, 0], x_set[y_set == j, 1], c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Logistic Regression (Training set)')
+plt.title('SVM (Training set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
@@ -64,7 +67,7 @@ plt.xlim(X1.min(), X1.max())
 plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(x_set[y_set == j, 0], x_set[y_set == j, 1], c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Logistic Regression (Test set)')
+plt.title('SVM (Test set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
