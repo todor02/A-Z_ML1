@@ -37,10 +37,10 @@ print(np.concatenate((y_pred.reshape(len(y_pred), 1), y_test.reshape(len(y_test)
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix, accuracy_score
 cm = confusion_matrix(y_test, y_pred)
-print(cm)
+print(cm)                               # ~0.93
 print(accuracy_score(y_test, y_pred))
 
-# Visualising the Training set results ||| TAKES AGES TO RUN!!! ||| WILL RUN THEM LATER!
+# Visualising the Training set results ||| TAKES ~1 HOUR TO RUN!!!
 from matplotlib.colors import ListedColormap
 x_set, y_set = sc.inverse_transform(x_train), y_train
 X1, X2 = np.meshgrid(np.arange(start =x_set[:, 0].min() - 10, stop =x_set[:, 0].max() + 10, step = 0.25),
@@ -57,7 +57,7 @@ plt.ylabel('Estimated Salary')
 plt.legend()
 plt.show()
 
-# Visualising the Test set results ||| TAKES AGES TO RUN!!! ||| WILL RUN THEM LATER!
+# Visualising the Test set results ||| TAKES ~1 HOUR TO RUN!!!
 from matplotlib.colors import ListedColormap
 x_set, y_set = sc.inverse_transform(x_test), y_test
 X1, X2 = np.meshgrid(np.arange(start =x_set[:, 0].min() - 10, stop =x_set[:, 0].max() + 10, step = 0.25),
