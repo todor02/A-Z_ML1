@@ -1,4 +1,4 @@
-# K-Nearest Neighbor
+# K-Nearest Neighbor Classification
 # Euclidean Distance between P₁(x₁,y₁) and P₂(x₂,y₂) = √((x₂ - x₁)² + (y₂ - y₁)²)
 
 # Importing the libraries

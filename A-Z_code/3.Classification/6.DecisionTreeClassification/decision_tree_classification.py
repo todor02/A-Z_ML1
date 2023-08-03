@@ -1,4 +1,4 @@
-# Support Vector Machine
+# Decision Tree Classification
 
 # Importing the libraries
 import numpy as np
@@ -20,10 +20,7 @@ sc = StandardScaler()
 x_train = sc.fit_transform(x_train)
 x_test = sc.transform(x_test)
 
-# Training the SVM model on the Training set
-from sklearn.svm import SVC
-classifier = SVC(kernel='linear', random_state=0)
-classifier.fit(x_train, y_train)
+# Training the Decision Tree model on the Training set
 
 # Predicting a new result
 print(classifier.predict(sc.transform([[30, 87000]])))  # returns: [0] (correct)
@@ -36,7 +33,7 @@ print(np.concatenate((y_pred.reshape(len(y_pred), 1), y_test.reshape(len(y_test)
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix, accuracy_score
 cm = confusion_matrix(y_test, y_pred)
-print(cm)                               # ~0.9
+print(cm)                               # ~0.
 print(accuracy_score(y_test, y_pred))
 
 # Visualising the Training set results
@@ -50,7 +47,7 @@ plt.xlim(X1.min(), X1.max())
 plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(x_set[y_set == j, 0], x_set[y_set == j, 1], c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('SVM (Training set)')
+plt.title('Decision Tree (Training set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
@@ -67,7 +64,7 @@ plt.xlim(X1.min(), X1.max())
 plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(x_set[y_set == j, 0], x_set[y_set == j, 1], c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('SVM (Test set)')
+plt.title('Decision Tree (Test set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()

@@ -1,4 +1,4 @@
-# Kernel SVM
+# Kernel SVM Classification
 
 # Importing the libraries
 import numpy as np
@@ -20,7 +20,7 @@ sc = StandardScaler()
 x_train = sc.fit_transform(x_train)
 x_test = sc.transform(x_test)
 
-# Training the SVM model on the Training set
+# Training the Kernel SVM model on the Training set
 from sklearn.svm import SVC
 classifier = SVC(kernel='rbf', random_state=0)
 classifier.fit(x_train, y_train)
