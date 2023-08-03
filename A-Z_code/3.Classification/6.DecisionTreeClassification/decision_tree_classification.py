@@ -21,6 +21,9 @@ x_train = sc.fit_transform(x_train)
 x_test = sc.transform(x_test)
 
 # Training the Decision Tree model on the Training set
+from sklearn.tree import DecisionTreeClassifier
+classifier = DecisionTreeClassifier(criterion='entropy', random_state=0)
+classifier.fit(x_train, y_train)
 
 # Predicting a new result
 print(classifier.predict(sc.transform([[30, 87000]])))  # returns: [0] (correct)
@@ -33,8 +36,8 @@ print(np.concatenate((y_pred.reshape(len(y_pred), 1), y_test.reshape(len(y_test)
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix, accuracy_score
 cm = confusion_matrix(y_test, y_pred)
-print(cm)                               # ~0.
-print(accuracy_score(y_test, y_pred))
+print(cm)
+print(accuracy_score(y_test, y_pred))   # ~0.91
 
 # Visualising the Training set results
 from matplotlib.colors import ListedColormap
