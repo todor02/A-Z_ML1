@@ -12,7 +12,7 @@ import pandas as pd
 dataset = pd.read_csv('DataSets/Market_Basket_Optimisation.csv', header=None)
 transactionsList = []
 for i in range(0, 7501):
-  transactionsList.append([str(dataset.values[i,j]) for j in range(0, 20)])
+  transactionsList.append([str(dataset.values[i, j]) for j in range(0, 20)])
 
 # Training the Apriori model on the dataset
 from apyori import apriori
