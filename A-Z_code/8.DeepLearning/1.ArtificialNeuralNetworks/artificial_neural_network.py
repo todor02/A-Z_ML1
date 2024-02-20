@@ -68,8 +68,7 @@ ann.fit(X_train, y_train, batch_size=32, epochs=20)
 # Predicting the result of a single observation
 
 """
-Homework:
-Use our ANN model to predict if the customer with the following informations will leave the bank: 
+Use the ANN model to predict if the customer with the following informations will leave the bank: 
 Geography: France
 Credit Score: 600
 Gender: Male
@@ -81,20 +80,18 @@ Does this customer have a credit card? Yes
 Is this customer an Active Member: Yes
 Estimated Salary: $ 50000
 So, should we say goodbye to that customer?
-
-Solution:
 """
-
-
-
-"""
-Therefore, our ANN model predicts that this customer stays in the bank!
-Important note 1: Notice that the values of the features were all input in a double pair of square brackets. That's because the "predict" method always expects a 2D array as the format of its inputs. And putting our values into a double pair of square brackets makes the input exactly a 2D array.
-Important note 2: Notice also that the "France" country was not input as a string in the last column but as "1, 0, 0" in the first three columns. That's because of course the predict method expects the one-hot-encoded values of the state, and as we see in the first row of the matrix of features X, "France" was encoded as "1, 0, 0". And be careful to include these values in the first three columns, because the dummy variables are always created in the first columns.
-"""
+print(ann.predict(sc.transform([[1, 0, 0, 600, 1, 40, 3, 60000, 2, 1, 1, 50000]])) > 0.5)
+# =0.036 chance to leave the bank => 3,6%
 
 # Predicting the Test set results
-
+y_pred = ann.predict(X_test)
+y_pred = (y_pred > 0.5)
+print("Predicted --- Actual")
+print(np.concatenate((y_pred.reshape(len(y_pred), 1), y_test.reshape(len(y_test), 1)), 1))
 
 # Making the Confusion Matrix
-
+from sklearn.metrics import confusion_matrix, accuracy_score
+cm = confusion_matrix(y_test, y_pred)
+print(cm)
+print(accuracy_score(y_test, y_pred))   # ~0.84
