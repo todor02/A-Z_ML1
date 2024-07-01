@@ -36,11 +36,11 @@ from sklearn.metrics import confusion_matrix, accuracy_score
 y_pred = classifier.predict(X_test)
 cm = confusion_matrix(y_test, y_pred)
 print(cm)
-accuracy_score(y_test, y_pred)
+print(accuracy_score(y_test, y_pred))
 # [[14  0  0] 
 #  [ 1 15  0] 
 #  [ 0  0  6]]
-
+# 0.9722222222222222
 
 # Visualising the Training set results
 from matplotlib.colors import ListedColormap
